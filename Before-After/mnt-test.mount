@@ -1,0 +1,15 @@
+[Unit]
+Description=Mount the "/mnt/test" filesystem
+Documentation=https://github.com/nmasse-itix/Systemd-Examples
+After=backup-mnt-test.service
+Requires=backup-mnt-test.service
+Before=restore-mnt-test.service
+Wants=restore-mnt-test.service
+
+[Mount]
+What=tmpfs
+Where=/mnt/test
+Type=tmpfs
+
+[Install]
+WantedBy=custom.target

@@ -1,0 +1,12 @@
+[Unit]
+Description=Mount the "/mnt/backup" filesystem
+Documentation=https://github.com/nmasse-itix/Systemd-Examples
+
+[Mount]
+What=tmpfs
+Where=/mnt/backup
+Type=tmpfs
+Options=context=system_u:object_r:container_file_t:s0
+
+[Install]
+WantedBy=custom.target

@@ -1,0 +1,10 @@
+[Unit]
+Description=Backup the content of /mnt/test
+Documentation=https://github.com/nmasse-itix/Systemd-Examples
+Before=mnt-test.mount
+RequiresMountsFor=/mnt/backup
+
+[Service]
+Type=oneshot
+UMask=077
+ExecStart=tar -cf /mnt/backup/mnt-test.tar -C /mnt/test .

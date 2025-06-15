@@ -1,0 +1,4 @@
+[Unit]
+Description=Custom Target
+Documentation=https://github.com/nmasse-itix/Systemd-Examples
+AllowIsolate=no

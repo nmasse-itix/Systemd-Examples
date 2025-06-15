@@ -1,0 +1,11 @@
+[Unit]
+Description=Restore the "/mnt/test" filesystem
+Documentation=https://github.com/nmasse-itix/Systemd-Examples
+After=mnt-test.mount
+Requires=mnt-test.mount
+RequiresMountsFor=/mnt/backup
+
+[Service]
+Type=oneshot
+ExecStart=tar -xf /mnt/backup/mnt-test.tar -C /mnt/test
+ExecStartPost=rm -f /mnt/backup/mnt-test.tar
