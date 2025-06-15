@@ -4,6 +4,8 @@ Documentation=https://github.com/nmasse-itix/Systemd-Examples
 After=mnt-test.mount
 Requires=mnt-test.mount
 RequiresMountsFor=/mnt/backup
+ConditionPathIsMountPoint=!/mnt/test
+ConditionPathExists=/mnt/backup/mnt-test.tar
 
 [Service]
 Type=oneshot

@@ -3,6 +3,14 @@ Description=Backup the content of /mnt/test
 Documentation=https://github.com/nmasse-itix/Systemd-Examples
 Before=mnt-test.mount
 RequiresMountsFor=/mnt/backup
+ConditionPathIsMountPoint=!/mnt/test
+
+# Unless DefaultDependencies= is set to false, service units will implicitly
+# have dependencies of type Requires= and After= on basic.target as well as
+# dependencies of type Conflicts= and Before= on shutdown.target.
+#
+# So, we need to set DefaultDependencies to "no" to break the ordering cycle.
+DefaultDependencies=no
 
 [Service]
 Type=oneshot
